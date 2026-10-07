@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Apand Vision CCTV Event Monitor</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="dashboard">
+      <!-- HEADER -->
+      <header class="header">
+        <div>
+          <p class="eyebrow">APAND VISION CCTV</p>
+          <h1>Event Monitor</h1>
+        </div>
+
+        <div class="system-status">
+          <span class="status-dot"></span>
+          System Online
+        </div>
+      </header>
+
+      <!-- EVENT COUNTERS -->
+      <section class="event-counters">
+        <div class="counter">
+          <span>PERSON</span>
+          <strong id="personCount">0</strong>
+        </div>
+
+        <div class="counter">
+          <span>VEHICLE</span>
+          <strong id="vehicleCount">0</strong>
+        </div>
+
+        <div class="counter">
+          <span>MOTION</span>
+          <strong id="motionCount">0</strong>
+        </div>
+
+        <div class="counter">
+          <span>OFFLINE</span>
+          <strong id="offlineCount">0</strong>
+        </div>
+
+        <div class="counter">
+          <span>INTRUSION</span>
+          <strong id="intrusionCount">0</strong>
+        </div>
+
+        <div class="counter">
+          <span>UNKNOWN</span>
+          <strong id="unknownCount">0</strong>
+        </div>
+      </section>
+
+      <!-- EVENT LOG -->
+      <section class="event-panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">EVENT LOG</p>
+            <h2>Detected Events</h2>
+          </div>
+
+          <div class="event-total">
+            <span>Total Events</span>
+            <strong id="totalEvents">0</strong>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>TIME</th>
+                <th>EVENT</th>
+                <th>CAMERA</th>
+                <th>LOCATION</th>
+              </tr>
+            </thead>
+
+            <tbody id="eventTable">
+              <!-- JavaScript inserts events here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <script src="./database/CCTV_EVENTS.js"></script>
+    <script src="./API/CCTV_DATA_CONTROLER.js"></script>
+  </body>
+</html>

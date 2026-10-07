@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Apand Vision CCTV Event Monitor</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+      <div>
+        <p class="eyebrow">APAND VISION CCTV</p>
+        <h1>Event Monitor</h1>
+      </div>
+
+      <div class="system-status">
+        <span class="status-dot"></span>
+        System Online
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- Event counters -->
+      <section class="counters" id="counters">
+        <!-- Counters are created by app.js -->
+      </section>
+
+      <!-- Filters -->
+      <section class="filters">
+        <div class="filter-group">
+          <label for="cameraFilter">Camera</label>
+
+          <select id="cameraFilter">
+            <option value="all">All Cameras</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="statusFilter">Status</label>
+
+          <select id="statusFilter">
+            <option value="all">All Statuses</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="eventFilter">Event Type</label>
+
+          <select id="eventFilter">
+            <option value="all">All Event Types</option>
+          </select>
+        </div>
+
+        <button id="clearFilters" class="clear-button">Clear Filters</button>
+      </section>
+
+      <!-- Event log -->
+      <section class="event-panel">
+        <div class="panel-header">
+          <div>
+            <h2>Detected Events</h2>
+            <p>Events retrieved from PostgreSQL</p>
+          </div>
+
+          <span id="eventCount">0 events</span>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Event</th>
+                <th>Camera</th>
+                <th>Location</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+
+            <tbody id="eventTableBody">
+              <!-- Events inserted by app.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Shown when there are no events -->
+        <div class="empty-state" id="emptyState">
+          <h3>No Events Found</h3>
+          <p>There are currently no events to display.</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

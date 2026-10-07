@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apand Vision CCTV Event Monitor</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="dashboard">
+      <header class="topbar">
+        <div>
+          <span class="eyebrow">APAND VISION CCTV</span>
+          <h1>CCTV Event Monitor</h1>
+        </div>
+        <div class="system-status">
+          <span class="status-dot"></span>
+          SYSTEM ONLINE
+        </div>
+      </header>
+
+      <section class="counters" id="counters"></section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <span class="eyebrow">EVENT SIMULATOR</span>
+            <h2>Simulate an Event</h2>
+          </div>
+          <span class="hint">Click an event to add it to the event array</span>
+        </div>
+
+        <div class="event-actions">
+          <button class="event-button" data-event="Person Detected">
+            Person Detected
+          </button>
+          <button class="event-button" data-event="Vehicle Detected">
+            Vehicle Detected
+          </button>
+          <button class="event-button" data-event="Motion Detected">
+            Motion Detected
+          </button>
+          <button class="event-button" data-event="Camera Offline">
+            Camera Offline
+          </button>
+          <button class="event-button" data-event="Restricted Area Intrusion">
+            Restricted Area Intrusion
+          </button>
+          <button class="event-button" data-event="Unknown Event">
+            Unknown Event
+          </button>
+        </div>
+      </section>
+
+      <section class="panel event-panel">
+        <div class="panel-header">
+          <div>
+            <span class="eyebrow">EVENT LOG</span>
+            <h2>Detected Events</h2>
+          </div>
+          <span class="event-count" id="eventCount">0 events</span>
+        </div>
+
+        <div class="filters">
+          <select id="cameraFilter">
+            <option value="all">All Cameras</option>
+          </select>
+
+          <select id="statusFilter">
+            <option value="all">All Statuses</option>
+          </select>
+
+          <select id="eventFilter">
+            <option value="all">All Event Types</option>
+          </select>
+
+          <button id="clearFilters" class="clear-button">Clear Filters</button>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>TIME</th>
+                <th>EVENT</th>
+                <th>CAMERA</th>
+                <th>LOCATION</th>
+                <th>STATUS</th>
+              </tr>
+            </thead>
+            <tbody id="eventTableBody"></tbody>
+          </table>
+
+          <div id="emptyState" class="empty-state">
+            <p>No events detected yet.</p>
+            <span>Select an event above to add it to the event list.</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./database/CCTV_EVENTS.js"></script>
+    <script src="./API/CCTV_DATA_CONTROLER.js"></script>
+  </body>
+</html>
